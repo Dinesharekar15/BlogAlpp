@@ -1,4 +1,4 @@
-import { Client, Databases, ID ,Storage} from "appwrite";
+import { Client, Databases, ID ,Query,Storage} from "appwrite";
 import conf from "../conf/conf";
 
 
@@ -65,6 +65,40 @@ export class Storege{
     return null
    
    }
+
+   async getposts (queries=[Query.equal("status","active")]){
+    try {
+        return await this.databases.listDocuments(conf.databaseid,conf.collectionid,queries)
+    } catch (error) {
+        console.log("error",error)
+    }
+    return null
+   
+   }
+   
+   async uploadfile(file){
+    try {
+        return await this.account.bucket.createFile(
+            conf.bucketid,
+            ID.unique(),
+            file)
+    } catch (error) {
+        throw error
+    }
+    }
+  async deletefile(fileid){
+    try {
+        await this.account.bucket.deleteFile(conf.bucketid,fileid)
+    } catch (error) {
+        throw error
+    }
+    }
+
+    getfilepreview(fileid){
+        return this.account.bucket.getFilePreview(conf.bucketid,fileid)
+    }
+
+
 }
 
 const storege=new Storege()
