@@ -78,7 +78,7 @@ export class Storege{
    
    async uploadfile(file){
     try {
-        return await this.account.bucket.createFile(
+        return await this.bucket.createFile(
             conf.bucketid,
             ID.unique(),
             file)
@@ -88,14 +88,14 @@ export class Storege{
     }
   async deletefile(fileid){
     try {
-        await this.account.bucket.deleteFile(conf.bucketid,fileid)
+        await this.bucket.deleteFile(conf.bucketid,fileid)
     } catch (error) {
         throw error
     }
     }
 
     getfilepreview(fileid){
-        return this.account.bucket.getFilePreview(conf.bucketid,fileid)
+        return this.bucket.getFilePreview(conf.bucketid,fileid)
     }
 
 

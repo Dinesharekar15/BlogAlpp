@@ -28,28 +28,31 @@ const Header = () => {
     {
       name:'All posts',
       sluge:'/all-posts',
+      active:authstatus
     },
     {
-      name:'all post',
+      name:'All post',
       sluge:'/all-post',
       active:authstatus
     }
   ]
 
   return (
-    <header>
-      <container>
+    <header className='py-3 shadow bg-gray-500'>
+      <Container >
 
-      <nav>
-        <div>
-          <Link>
+      <nav className='flex'>
+        <div  className='mr-4'>
+          <Link to="/">
             <Logo/>
           </Link>
-          <ul>
+          <ul className='flex ml-auto'>
             {navitems.map((item)=>
               item.active ?( 
                 <li key={item.name} >
-                  <button onClick={()=>navigate(item.sluge)}>
+                  <button 
+                   className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
+                  onClick={()=>navigate(item.sluge)}>
                     {item.name}
                   </button>
                 </li>
@@ -66,7 +69,7 @@ const Header = () => {
         </div>
       </nav>
 
-      </container>
+      </Container>
     </header>
   )
 }
