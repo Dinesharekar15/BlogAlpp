@@ -8,7 +8,7 @@ import { loginUser as slicelogin } from '../store/authslice'
 import { Logo, Button, Input } from './index'
 
 
-function signup() {
+function Signup() {
     const dispatch=useDispatch()
     const [error,seterror]=useState("")
     const navigate=useNavigate()
@@ -21,7 +21,7 @@ function signup() {
             const session= await authservice.ceateaccounte(data)
             if(session){
                 const userdata=  await authservice.getaccount()
-               if(userdata)dispatch(slicelogin(data));
+               if(userdata)dispatch(slicelogin(userdata));
                navigate("/")
 
 
@@ -104,4 +104,4 @@ function signup() {
   )
 }
 
-export default signup
+export default Signup

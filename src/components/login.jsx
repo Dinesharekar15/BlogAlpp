@@ -5,13 +5,14 @@ import { loginUser as slicelogin } from '../store/authslice'
 import { authservice } from '../Appwrite/auth'
 import { useForm } from 'react-hook-form'
 import {Logo,Button,Input} from "./index"
-const login = () => {
+
+const Login = () => {
    const dispatch =useDispatch()
    const [error,seterror]=useState("")
    const navigate =useNavigate()
    const {register,handleSubmit} =useForm()
 
-   const login=async(data)=>{
+   const Login=async(data)=>{
     seterror("")
      try {
        const session= await authservice.login(data)
@@ -85,4 +86,4 @@ const login = () => {
   )
 }
 
-export default login
+export default Login

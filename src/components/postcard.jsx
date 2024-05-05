@@ -1,7 +1,7 @@
 import React from 'react'
 import storege from '../Appwrite/Storege'
 import { Link } from 'react-router-dom'
-const postcard = ({
+const Postcard = ({
     $id,
    title,
    feturedimage,
@@ -29,4 +29,4 @@ const postcard = ({
   )
 }
 
-export default postcard
+export default Postcard

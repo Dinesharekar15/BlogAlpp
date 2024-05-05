@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 
-const postForm = ({post}) => {
+const PostForm = ({post}) => {
   
   const {register,handleSubmit,control,getValues,setValue,watch} =useForm(
     {
@@ -126,4 +126,4 @@ React.useEffect( ()=> {
   )
 }
 
-export default post
+export default PostForm
