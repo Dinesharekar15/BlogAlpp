@@ -1,4 +1,4 @@
-import Header from "./header/header";
+import Header from "./header/Header";
 import Logoutbtn from "./header/Logoutbtn";
 import Footer from "./footer/footer";
 import Container from "./container/container";

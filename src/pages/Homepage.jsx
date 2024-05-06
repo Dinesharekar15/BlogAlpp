@@ -1,8 +1,8 @@
-import React from 'react'
-import { useState,useEffect } from 'react'
+import React,{ useState,useEffect } from 'react'
+
 import appwriteservice from '../Appwrite/Storege'
-import { Container } from 'postcss'
-import { PostForm } from '../components'
+import  {Container,Postcard}  from '../components/index'
+
 
 const Homepage = () => {
     const [posts, setPosts] = useState([])
@@ -11,10 +11,13 @@ const Homepage = () => {
             if (post){
                 setPosts(post.documents)
             }
+        }).catch((err)=>{
+            console.log('Error fetching posts:',err)
         })
 
     },[])
     if (posts.length===0){
+        return(
         <div className="w-full py-8 mt-4 text-center">
         <Container>
             <div className="flex flex-wrap">
@@ -26,15 +29,16 @@ const Homepage = () => {
             </div>
         </Container>
     </div>
+        )
     }
     return(
          
         <div className="w-full py-8">
             <Container>
                 <div className='flex flex-wrap'>
-                    {Postcard.map((post)=>{
+                    {posts.map((post)=>{
                         <div key={post.$id} className='p-2 w-1/4'>
-                            <PostForm {...post} />
+                            <Postcard {...post} />
                         </div>
                     })}
                 </div>

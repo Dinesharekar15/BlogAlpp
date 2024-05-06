@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Container = () => {
+const Container = ( {children} ) => {
   return (
     <div className='min-w-full'>
-      
+      {children}
     </div>
   )
 }

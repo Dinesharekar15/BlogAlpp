@@ -1,6 +1,6 @@
 import React from 'react'
 import { useCallback } from 'react'
-import {Button,Input,RTE,Select} from "../components/index"
+import {Button,Input,RTE,Select} from "../index"
 import storegeservice from "../../Appwrite/Storege"
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
@@ -126,4 +126,4 @@ React.useEffect( ()=> {
   )
 }
 
-export default PostForm
+export default  PostForm

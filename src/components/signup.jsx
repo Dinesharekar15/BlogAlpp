@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { authservice } from '../Appwrite/auth'
+import  {authservice}  from '../Appwrite/auth'
 import { useNavigate,Link } from 'react-router-dom'
 import { loginUser as slicelogin } from '../store/authslice'
 import { Logo, Button, Input } from './index'
@@ -74,10 +73,9 @@ function Signup() {
             type="text"
             placeholder="username"
             className="mt-4"
-            {
-                ...register("name"),{
-                    required:true,
-                }
+            {...register("name",{
+                    required:true
+            })
             }
             />
             <Input
@@ -85,10 +83,9 @@ function Signup() {
             type="text"
             placeholder='password'
             className="mt-4"
-            {
-                ...register("password"),{
+            {...register("password",{
                     register:true
-                }
+                })
             }
             />
             <Button 

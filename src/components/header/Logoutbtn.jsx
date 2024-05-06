@@ -1,5 +1,5 @@
 import React from 'react'
-import authservice from '../../Appwrite/auth'
+import {authservice} from '../../Appwrite/auth'
 import {logoutUser} from '../../store/authslice'
 import { useDispatch } from 'react-redux'
 const Logoutbtn = () => {
